@@ -11,7 +11,7 @@ jobs:
       LOC_ID: ${{ secrets.LOC_ID }}
       SEND_TO: ${{ secrets.SEND_TO }}
     steps:
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: pip install
         run: pip3 install -r requirements.txt
       - name: Check NBN status
