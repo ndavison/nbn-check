@@ -5,6 +5,7 @@ on:
 
 jobs:
   check-nbn:
+    name: Check NBN status
     runs-on: ubuntu-latest
     env:
       LOC_ID: ${{ secrets.LOC_ID }}
