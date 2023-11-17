@@ -11,15 +11,8 @@ jobs:
       LOC_ID: ${{ secrets.LOC_ID }}
       SEND_TO: ${{ secrets.SEND_TO }}
     steps:
-      - name: Install mailutils
-        run: sudo apt-get install -y mailutils
       - uses: actions/checkout@v4
       - name: pip install
         run: pip3 install -r requirements.txt
       - name: Check NBN status
         run: python3 nbn-check.py
-      - name: Send email
-        if: ${{ hashFiles('results.json') != '' }}
-        run: |
-          mail -A results.json -s 'NBN status updated' ${SEND_TO} < /dev/null
-          rm results.json
